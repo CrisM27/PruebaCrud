@@ -4,10 +4,10 @@ namespace PruebaCrud.Services.IServices
 {
     public interface IEmployeeService
     {
-        List<EmployeeDto> GetEmployees();
+        List<EmployeeDto> GetAll();
         EmployeeDto GetEmployee(int employeeId);
-        void Insert(EmployeeDto employee);
-        void Update(EmployeeDto employee);
+        void Insert(EmployeeDto employeedto);
+        void Update(EmployeeDto employeedto);
         void DeleteEmployee(int employeeId);
     }
 }

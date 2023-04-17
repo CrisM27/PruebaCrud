@@ -1,10 +1,10 @@
-﻿using Domain.Entities;
+﻿using PruebaCrud.Domain.Entities;
 
-namespace Domain.IRepositories
+namespace PruebaCrud.Domain.IRepositories
 {
     public interface IEmployeeRepository
     {
-        List<Employee> GetEmployees();
+        List<Employee> GetAll();
         Employee GetEmployee(int employeeId);
         void Insert(Employee employee);
         void Update(Employee employee);

@@ -1,7 +1,7 @@
-using Domain.IRepositories;
 using Microsoft.EntityFrameworkCore;
 using PruebaCrud.DAL;
 using PruebaCrud.DAL.Repositories;
+using PruebaCrud.Domain.IRepositories;
 using PruebaCrud.Services.IServices;
 using PruebaCrud.Services.Mapping;
 using PruebaCrud.Services.Services;
@@ -25,6 +25,7 @@ if (!app.Environment.IsDevelopment())
 
 // Repositories
 builder.Services.AddSingleton<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddSingleton<IStoreRepository, StoreRepository>();
 
 // Services
 builder.Services.AddSingleton<IEmployeeService, EmployeeService>();

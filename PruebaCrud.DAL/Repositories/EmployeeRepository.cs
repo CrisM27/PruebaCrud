@@ -1,5 +1,5 @@
-﻿using Domain.Entities;
-using Domain.IRepositories;
+﻿using PruebaCrud.Domain.Entities;
+using PruebaCrud.Domain.IRepositories;
 
 namespace PruebaCrud.DAL.Repositories
 {
@@ -11,7 +11,7 @@ namespace PruebaCrud.DAL.Repositories
             _context = context;
         }
 
-        public List<Employee> GetEmployees()
+        public List<Employee> GetAll()
         {
             return _context.Employees.ToList();
         }

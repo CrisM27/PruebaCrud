@@ -1,5 +1,5 @@
-﻿using Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using PruebaCrud.Domain.Entities;
 using System.Reflection;
 
 namespace PruebaCrud.DAL

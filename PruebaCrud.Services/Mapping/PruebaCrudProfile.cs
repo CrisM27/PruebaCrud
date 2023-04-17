@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Domain.Entities;
+using PruebaCrud.Domain.Entities;
 using PruebaCrud.Services.DTOs;
 
 namespace PruebaCrud.Services.Mapping
@@ -9,6 +9,7 @@ namespace PruebaCrud.Services.Mapping
         public PruebaCrudProfile()
         {
             CreateMap<Employee,EmployeeDto>().ReverseMap();
+            CreateMap<Store, StoreDto>().ReverseMap();
         }
     }
 }

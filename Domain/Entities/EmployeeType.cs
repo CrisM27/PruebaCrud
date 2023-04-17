@@ -1,4 +1,4 @@
-﻿namespace Domain.Entities
+﻿namespace PruebaCrud.Domain.Entities
 {
     public class EmployeeType
     {

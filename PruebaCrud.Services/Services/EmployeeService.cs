@@ -1,13 +1,8 @@
 ﻿using AutoMapper;
-using Domain.IRepositories;
-using PruebaCrud.DAL.Repositories;
+using PruebaCrud.Domain.Entities;
+using PruebaCrud.Domain.IRepositories;
 using PruebaCrud.Services.DTOs;
 using PruebaCrud.Services.IServices;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PruebaCrud.Services.Services
 {
@@ -22,11 +17,6 @@ namespace PruebaCrud.Services.Services
             _mapper = mapper;
         }
 
-        public void DeleteEmployee(int employeeId)
-        {
-            _employeeRepository.DeleteEmployee(employeeId);
-        }
-
         public EmployeeDto GetEmployee(int employeeId)
         {
             var employee = _employeeRepository.GetEmployee(employeeId);
@@ -35,19 +25,32 @@ namespace PruebaCrud.Services.Services
             return employeeDto;
         }
 
-        public List<EmployeeDto> GetEmployees()
+        public List<EmployeeDto> GetAll()
         {
-            throw new NotImplementedException();
+            var employees = _employeeRepository.GetAll();
+            var employeesDto = _mapper.Map<List<EmployeeDto>>(employees);
+
+            return employeesDto;
         }
 
-        public void Insert(EmployeeDto employee)
+        public void Insert(EmployeeDto employeeDto)
         {
-            throw new NotImplementedException();
+            var employeesDto = _employeeRepository.GetAll().ToList();
+            var employee = _mapper.Map<Employee>(employeeDto);
+
+            _employeeRepository.Insert(employee);
         }
 
-        public void Update(EmployeeDto employee)
+        public void Update(EmployeeDto employeeDto)
         {
-            throw new NotImplementedException();
+            var employeesDto = _employeeRepository.GetAll().ToList();
+            var employee = _mapper.Map<Employee>(employeeDto);
+
+            _employeeRepository.Update(employee);
+        }
+        public void DeleteEmployee(int employeeId)
+        {
+            _employeeRepository.DeleteEmployee(employeeId);
         }
     }
 }
