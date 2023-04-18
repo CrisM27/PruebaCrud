@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. User Interface", "1. Use
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PruebaCrud.DAL", "PruebaCrud.DAL\PruebaCrud.DAL.csproj", "{49EFC13D-0363-4BCB-8271-7DB718168D26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaCrud.Services", "PruebaCrud.Services\PruebaCrud.Services.csproj", "{472B969F-9EC7-4E6C-86E2-2270A25C474D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PruebaCrud.Services", "PruebaCrud.Services\PruebaCrud.Services.csproj", "{472B969F-9EC7-4E6C-86E2-2270A25C474D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

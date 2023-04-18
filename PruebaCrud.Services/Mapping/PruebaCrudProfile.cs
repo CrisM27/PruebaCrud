@@ -10,6 +10,7 @@ namespace PruebaCrud.Services.Mapping
         {
             CreateMap<Employee,EmployeeDto>().ReverseMap();
             CreateMap<Store, StoreDto>().ReverseMap();
+            CreateMap<EmployeeType, EmployeeTypeDto>().ReverseMap();
         }
     }
 }

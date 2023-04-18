@@ -6,9 +6,8 @@ namespace PruebaCrud.Domain.IRepositories
     {
         List<Store> GetAll();
         Store GetById(int id);
-
-        void Insert (Store store);
-        void Update (Store store);
-        void Delete (int storeid);
+        void Insert(Store store);
+        void Update(Store store);
+        void Delete(int storeid);
     }
 }

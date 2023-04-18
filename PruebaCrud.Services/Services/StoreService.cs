@@ -1,16 +1,17 @@
 ﻿using AutoMapper;
+using PruebaCrud.Domain.Entities;
 using PruebaCrud.Domain.IRepositories;
 using PruebaCrud.Services.DTOs;
 using PruebaCrud.Services.IServices;
 
 namespace PruebaCrud.Services.Services
 {
-    public class StoreServices : IStoreServices
+    public class StoreService : IStoreService
     {
         private readonly IStoreRepository _storeRepository;
         private readonly IMapper _mapper;
 
-        public StoreServices(IStoreRepository storerepository, IMapper mapper)
+        public StoreService(IStoreRepository storerepository, IMapper mapper)
         {
             _storeRepository = storerepository;
             _mapper = mapper;
@@ -20,7 +21,6 @@ namespace PruebaCrud.Services.Services
         {
             var store = _storeRepository.GetById(id);
             var storedto = _mapper.Map<StoreDto>(store);
-
             return storedto;
         }
 
@@ -34,17 +34,20 @@ namespace PruebaCrud.Services.Services
 
         public void Insert(StoreDto storedto)
         {
-            throw new NotImplementedException();
+            var store = _mapper.Map<Store>(storedto);
+            _storeRepository.Insert(store);
         }
 
         public void Update(StoreDto storedto)
         {
-            throw new NotImplementedException();
+            var store = _mapper.Map<Store>(storedto);
+            _storeRepository.Update(store);
         }
 
         public void Delete(int storeid)
         {
-            throw new NotImplementedException();
+            _storeRepository.Delete(storeid);
+           
         }
     }
 }

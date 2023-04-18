@@ -2,7 +2,7 @@
 
 namespace PruebaCrud.Services.IServices
 {
-    public interface IStoreServices
+    public interface IStoreService
     {
         List<StoreDto> GetAll();
         StoreDto GetById(int id);

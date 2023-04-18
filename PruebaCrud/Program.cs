@@ -13,6 +13,20 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<PruebaCrudContext>
     (options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
+// Repositories
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IStoreRepository, StoreRepository>();
+builder.Services.AddScoped<IEmployeeTypeRepository, EmployeeTypeRepository>();
+
+// Services
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddScoped<IStoreService, StoreService>();
+builder.Services.AddScoped<IEmployeeTypeService, EmployeeTypeService>();
+
+//Mapper
+builder.Services.AddAutoMapper(typeof(PruebaCrudProfile));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -22,15 +36,6 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
-// Repositories
-builder.Services.AddSingleton<IEmployeeRepository, EmployeeRepository>();
-builder.Services.AddSingleton<IStoreRepository, StoreRepository>();
-
-// Services
-builder.Services.AddSingleton<IEmployeeService, EmployeeService>();
-
-builder.Services.AddAutoMapper(typeof(PruebaCrudProfile));
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
