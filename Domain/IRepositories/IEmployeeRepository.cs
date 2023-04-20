@@ -4,7 +4,7 @@ namespace PruebaCrud.Domain.IRepositories
 {
     public interface IEmployeeRepository
     {
-        List<Employee> GetAll();
+         List<Employee> GetAll();
         Employee GetEmployee(int employeeId);
         void Insert(Employee employee);
         void Update(Employee employee);

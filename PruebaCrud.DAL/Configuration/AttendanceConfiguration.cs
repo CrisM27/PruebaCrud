@@ -9,6 +9,7 @@ namespace PruebaCrud.DAL.Configuration
         public void Configure(EntityTypeBuilder<Attendance> builder)
         {
             builder
+                .ToTable("Attendance")
                 .HasKey(e => new { e.StoreID, e.EmployeeID, e.AttendanceDate });
 
             builder
@@ -25,13 +26,19 @@ namespace PruebaCrud.DAL.Configuration
                 .HasForeignKey(e => e.EmployeeID);
 
             builder
-                .Property(e => e.StoreID).IsRequired();
+                .Property(e => e.StoreID)
+                .HasColumnName("Store_ID")
+                .IsRequired();
 
             builder
-                .Property(e => e.EmployeeID).IsRequired();
+                .Property(e => e.EmployeeID)
+                .HasColumnName("Employee_ID")
+                .IsRequired();
 
             builder
-                .Property(e => e.AttendanceDate).IsRequired();
+                .Property(e => e.AttendanceDate)
+                .HasColumnName("Attendance_Date")
+                .IsRequired();
         }
     }
 }

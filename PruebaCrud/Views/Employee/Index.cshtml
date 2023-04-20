@@ -1,0 +1,30 @@
+﻿@using PruebaCrud.Services.DTOs
+@model IList<PruebaCrud.Services.DTOs.EmployeeDto>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div style="font-family: Arial, sans-serif;">
+    <h4 style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">Employee</h4>
+    <hr style="border-top: 1px solid #ccc; margin-bottom: 20px;" />
+    <table cellpadding="0" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+        <tr style="background-color: #eee;">
+            <th style="border: 1px solid #ccc; padding: 8px;">Employee ID:</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">Name:</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">Employee Type:</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">Telephone:</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">Employment Date:</th>
+        </tr>
+        @foreach (EmployeeDto employeeDto in Model)
+        {
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 8px;">@employeeDto.EmployeeID</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">@employeeDto.Name</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">@employeeDto.EmployeeTypeID</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">@employeeDto.Telephone</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">@employeeDto.EmploymentDate</td>
+            </tr>
+        }
+    </table>
+</div>

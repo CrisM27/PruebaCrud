@@ -5,8 +5,8 @@ namespace PruebaCrud.Domain.IRepositories
     public interface IAttendaceRepository
     {
         List<Attendance> GetAllAttendances();
-        Attendance GetAttendanceByDate(DateTime dateTime);
-        Attendance GetAttendanceByStore(int storeId);
-        List<Employee> GetEmployeeAttendance(Employee id);
+        List<Attendance> GetAttendancesByDate(DateTime dateTime);
+        List<Attendance> GetAttendancesByStore(int storeId);
+        List<Employee> GetEmployeesAttendance(int id);
     }
 }

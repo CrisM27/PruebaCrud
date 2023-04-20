@@ -9,27 +9,33 @@ namespace PruebaCrud.DAL.Configuration
         public void Configure(EntityTypeBuilder<EmployeeType> builder)
         {
             builder
+                .ToTable("Employee_Type")
+                .HasKey(e => e.EmployeeTypeID);
+
+            builder
                 .HasMany(e => e.Employees)
                 .WithOne(e => e.EmployeeType)
-                .HasForeignKey(e => e.EmployeeTypeID)
-                .HasPrincipalKey(e => e.EmployeeTypeID);
+                .HasForeignKey(e => e.EmployeeTypeID);
 
             builder
-               .Property(e => e.EmployeeTypeID).IsRequired();
+               .Property(e => e.EmployeeTypeID)
+               .HasColumnName("Employee_Type_ID")
+               .IsRequired();
 
             builder
-               .Property(e => e.EmployeeRole).IsRequired();
+               .Property(e => e.EmployeeRole)
+               .HasColumnName("Employee_Role")
+               .IsRequired();
+
             builder
                 .Property(e => e.EmployeeRole).HasMaxLength(50);
 
             builder
-               .Property(e => e.Salary).IsRequired();
+               .Property(e => e.Salary)
+               .HasColumnName("Salary")
+               .IsRequired();
             builder
                 .Property(e => e.Salary).HasMaxLength(12);
-
-
-
-
         }
     }
 }
