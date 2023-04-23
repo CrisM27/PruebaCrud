@@ -8,17 +8,15 @@ namespace PruebaCrud.Web.Controllers
 {
     public class EmployeeController : Controller
     {
-        //private readonly PruebaCrudContext _context;
-        private readonly IEmployeeService _employeeService;
+        private readonly IEmployeeService _service;
 
-        public EmployeeController(IEmployeeService employeeService)
+        public EmployeeController(IEmployeeService service)
         {
-           _employeeService = employeeService;
+           _service = service;
         }
         public IActionResult Index()
         {
-            //var employeeList = _context.Employees.ToList();
-            var employeeList = _employeeService.GetAll();
+            var employeeList = _service.GetAll();
             return View(employeeList);
         }
     }

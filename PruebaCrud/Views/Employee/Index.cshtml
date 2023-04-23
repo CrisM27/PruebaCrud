@@ -1,30 +1,33 @@
-﻿@using PruebaCrud.Services.DTOs
-@model IList<PruebaCrud.Services.DTOs.EmployeeDto>
+﻿@model IList<PruebaCrud.Services.DTOs.EmployeeDto>
+@using PruebaCrud.Services.DTOs;
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
-<div style="font-family: Arial, sans-serif;">
-    <h4 style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">Employee</h4>
-    <hr style="border-top: 1px solid #ccc; margin-bottom: 20px;" />
-    <table cellpadding="0" cellspacing="0" style="border-collapse: collapse; width: 100%;">
-        <tr style="background-color: #eee;">
-            <th style="border: 1px solid #ccc; padding: 8px;">Employee ID:</th>
-            <th style="border: 1px solid #ccc; padding: 8px;">Name:</th>
-            <th style="border: 1px solid #ccc; padding: 8px;">Employee Type:</th>
-            <th style="border: 1px solid #ccc; padding: 8px;">Telephone:</th>
-            <th style="border: 1px solid #ccc; padding: 8px;">Employment Date:</th>
-        </tr>
-        @foreach (EmployeeDto employeeDto in Model)
-        {
-            <tr>
-                <td style="border: 1px solid #ccc; padding: 8px;">@employeeDto.EmployeeID</td>
-                <td style="border: 1px solid #ccc; padding: 8px;">@employeeDto.Name</td>
-                <td style="border: 1px solid #ccc; padding: 8px;">@employeeDto.EmployeeTypeID</td>
-                <td style="border: 1px solid #ccc; padding: 8px;">@employeeDto.Telephone</td>
-                <td style="border: 1px solid #ccc; padding: 8px;">@employeeDto.EmploymentDate</td>
-            </tr>
-        }
-    </table>
+<div class="container">
+	<h1 class="display-3">Employees</h1><hr class="my-4"/>
+		<table class="table table-bordered">
+			<thead class="table-dark">
+				<tr>
+				<th scope="col">Employee ID</th>
+				<th scope="col">Name</th>
+				<th scope="col">Employee Type</th>
+				<th scope="col">Telephone</th>
+				<th scope="col">Employment Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach(EmployeeDto employeeDto in Model)
+			{
+				<tr>
+					<td>@employeeDto.EmployeeID</td>
+					<td>@employeeDto.Name</td>
+					<td>@employeeDto.EmployeeTypeID</td>
+					<td>@employeeDto.Telephone</td>
+					<td>@employeeDto.EmploymentDate</td>
+				</tr>
+			}
+		</tbody>
+		</table>
 </div>

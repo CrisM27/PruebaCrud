@@ -1,0 +1,29 @@
+﻿@model IList<PruebaCrud.Services.DTOs.StoreDto>
+@using PruebaCrud.Services.DTOs;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+	<h1 class="display-3">Stores</h1><hr class="my-4"/>
+	<table class="table table-bordered">
+		<thead class="table-dark">
+			<tr>
+				<th scope="col">Store ID</th>
+				<th scope="col">Store Name</th>
+				<th scope="col">Store Address</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach(StoreDto storeDto in Model)
+			{
+				<tr>
+					<td>@storeDto.StoreID</td>
+					<td>@storeDto.Name</td>
+					<td>@storeDto.Address</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

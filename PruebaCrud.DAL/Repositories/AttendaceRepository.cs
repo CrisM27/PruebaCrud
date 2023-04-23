@@ -13,7 +13,7 @@ namespace PruebaCrud.DAL.Repositories
             _context = context;
         }
 
-        public List<Attendance> GetAllAttendances()
+        public List<Attendance> GetAll()
         {
             return _context.Attendances.ToList();            
         }

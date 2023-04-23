@@ -1,0 +1,29 @@
+﻿@model IList<PruebaCrud.Services.DTOs.AttendanceDto>
+@using PruebaCrud.Services.DTOs;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+	<h1 class="display-3">Attendances</h1><hr class="my-4"/>
+	<table class="table table-bordere">
+		<thead class="table-dark">
+			<tr>
+				<th scope="col">Store ID</th>
+				<th scope="col">Employee ID</th>
+				<th scope="col">Attendance Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach(AttendanceDto attendanceDto in Model)
+			{
+				<tr>
+					<td>@attendanceDto.StoreID</td>
+					<td>@attendanceDto.EmployeeID</td>
+					<td>@attendanceDto.AttendanceDate</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

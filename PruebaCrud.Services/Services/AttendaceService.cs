@@ -16,9 +16,9 @@ namespace PruebaCrud.Services.Services
             _mapper = mapper;
         }
 
-        public List<AttendanceDto> GetAllAttendances()
+        public List<AttendanceDto> GetAll()
         {
-            var attendances = _attendaceRepository.GetAllAttendances();
+            var attendances = _attendaceRepository.GetAll();
             var attendanceDtos = _mapper.Map<List<AttendanceDto>>(attendances);
 
             return attendanceDtos;

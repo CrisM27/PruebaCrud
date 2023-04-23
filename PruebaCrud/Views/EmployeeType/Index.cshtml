@@ -1,0 +1,30 @@
+﻿@model IList<PruebaCrud.Services.DTOs.EmployeeTypeDto>
+@using PruebaCrud.Services.DTOs;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+	<h1 class="display-3">Employee Type</h1><hr class="my-4"/>
+	<table class="table table-bordered">
+		<thead class="table-dark">
+			<tr>
+				<th scope="col">Employee Type ID</th>
+				<th scope="col">Employee Role</th>
+				<th scope="col">Salary</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach(EmployeeTypeDto employeeTypeDto in Model)
+			{
+				<tr>
+					<td>@employeeTypeDto.EmployeeTypeID</td>
+					<td>@employeeTypeDto.EmployeeRole</td>
+					<td>@employeeTypeDto.Salary</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+
+</div>
