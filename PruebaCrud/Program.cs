@@ -1,3 +1,5 @@
+using AspNetCoreHero.ToastNotification;
+using AspNetCoreHero.ToastNotification.Extensions;
 using Microsoft.EntityFrameworkCore;
 using PruebaCrud.DAL;
 using PruebaCrud.DAL.Repositories;
@@ -31,6 +33,14 @@ builder.Services.AddScoped<IAttendaceService, AttendaceService>();
 //Mapper
 builder.Services.AddAutoMapper(typeof(PruebaCrudProfile));
 
+// Add ToastNotification
+builder.Services.AddNotyf(config =>
+{
+    config.DurationInSeconds = 5;
+    config.IsDismissable = true;
+    config.Position = NotyfPosition.TopRight;
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -51,5 +61,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.UseNotyf();
 
 app.Run();

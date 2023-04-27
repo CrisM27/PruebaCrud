@@ -8,6 +8,6 @@ namespace PruebaCrud.Domain.IRepositories
         Employee GetEmployee(int employeeId);
         void Insert(Employee employee);
         void Update(Employee employee);
-        void DeleteEmployee(int employeeId);
+        void DeleteEmployee(Employee employee);
     }
 }

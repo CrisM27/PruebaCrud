@@ -16,6 +16,12 @@ namespace PruebaCrud.DAL.Repositories
            return _context.EmployeeTypes.ToList();
         }
 
+        public List<int> GetAllEmployeeRoleID()
+        {
+            var employeeRoleList = _context.EmployeeTypes.Select(e => e.EmployeeTypeID);
+            return employeeRoleList.ToList();
+
+        }
         public EmployeeType GetById(int id)
         {
             var employeetype = _context.EmployeeTypes.FirstOrDefault(e => e.EmployeeTypeID == id);

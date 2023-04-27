@@ -35,10 +35,8 @@ namespace PruebaCrud.DAL.Repositories
             _context.SaveChanges();
         }
 
-        public void DeleteEmployee(int employeeId)
+        public void DeleteEmployee(Employee employee)
         {
-            var employee = _context.Employees.Find(employeeId);
-            //var employee = _context.Employees.FirstOrDefault(x=> x.ID == employeeId);
             if (employee != null)
             {
                 _context.Employees.Remove(employee);

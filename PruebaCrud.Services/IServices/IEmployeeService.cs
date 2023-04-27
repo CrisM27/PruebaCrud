@@ -6,8 +6,8 @@ namespace PruebaCrud.Services.IServices
     {
         List<EmployeeDto> GetAll();
         EmployeeDto GetEmployee(int employeeId);
-        void Insert(EmployeeDto employeedto);
-        void Update(EmployeeDto employeedto);
-        void DeleteEmployee(int employeeId);
+        void Insert(EmployeeDto employeeDto);
+        void Update(EmployeeDto employeeDto);
+        void DeleteEmployee(EmployeeDto employeeDto);
     }
 }

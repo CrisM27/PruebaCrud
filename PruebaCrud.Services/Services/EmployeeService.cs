@@ -44,9 +44,10 @@ namespace PruebaCrud.Services.Services
             var employee = _mapper.Map<Employee>(employeeDto);
             _employeeRepository.Update(employee);
         }
-        public void DeleteEmployee(int employeeId)
+        public void DeleteEmployee(EmployeeDto employeeDto)
         {
-            _employeeRepository.DeleteEmployee(employeeId);
+            var employee = _mapper.Map<Employee>(employeeDto);
+            _employeeRepository.DeleteEmployee(employee);
         }
     }
 }

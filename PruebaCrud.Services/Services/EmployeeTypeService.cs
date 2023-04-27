@@ -25,6 +25,10 @@ namespace PruebaCrud.Services.Services
 
             return employeeTypesDto;
         }
+        public List<int> GetAllEmployeeRoleID()
+        {
+            return _employeeRepository.GetAllEmployeeRoleID();
+        }
 
         public EmployeeTypeDto GetById(int id)
         {

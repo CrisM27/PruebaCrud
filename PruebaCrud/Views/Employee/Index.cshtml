@@ -1,31 +1,45 @@
-﻿@model IList<PruebaCrud.Services.DTOs.EmployeeDto>
+﻿@model List<PruebaCrud.Services.DTOs.EmployeeDto>
 @using PruebaCrud.Services.DTOs;
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
+
+
 <div class="container">
-	<h1 class="display-3">Employees</h1><hr class="my-4"/>
+	<h1 class="display-3">Employees</h1><hr class="my-3"/>
+
+    <div class="row">
+        <div class="d-flex justify-content-end">
+            <h4 class="align-self-center m-2" >Add Employee</h4>
+            @Html.ActionLink("+", "Index","AddEmployee", null, new { @class="btn btn-lg btn-success my-3 float-end" }) 
+        </div>
+    </div>
+
+ <div/>
+
 		<table class="table table-bordered">
 			<thead class="table-dark">
 				<tr>
-				<th scope="col">Employee ID</th>
-				<th scope="col">Name</th>
-				<th scope="col">Employee Type</th>
-				<th scope="col">Telephone</th>
-				<th scope="col">Employment Date</th>
+                <th scope="col" class="text-center">Employee ID</th>
+                <th scope="col" class="text-center">Name</th>
+                <th scope="col" class="text-center">Employee Type</th>
+                <th scope="col" class="text-center">Telephone</th>
+                <th scope="col" class="text-center">Employment Date</th>
+                <th scope="col" class="text-center">Options</th>
 				</tr>
 			</thead>
 			<tbody>
 				@foreach(EmployeeDto employeeDto in Model)
 			{
 				<tr>
-					<td>@employeeDto.EmployeeID</td>
+					<td class="text-center">@employeeDto.EmployeeID</td>
 					<td>@employeeDto.Name</td>
-					<td>@employeeDto.EmployeeTypeID</td>
+                    <td class ="text-center">@employeeDto.EmployeeTypeID</td>
 					<td>@employeeDto.Telephone</td>
 					<td>@employeeDto.EmploymentDate</td>
+                    <td class="text-center">@Html.ActionLink("Edit","Index","EditEmployee", new { id = employeeDto.EmployeeID  }, new{@class="btn btn-info m-1"})</td>
 				</tr>
 			}
 		</tbody>
