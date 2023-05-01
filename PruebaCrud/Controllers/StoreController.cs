@@ -55,7 +55,7 @@ namespace PruebaCrud.Web.Controllers
         public IActionResult DeleteStore(StoreDto store)
         {
             _service.Delete(store);
-            _toastNotification.Success("Changes has been saved.");
+            _toastNotification.Success("The store has been deleted successfully.");
             _service.GetAll();
             return RedirectToAction("Index");
         }

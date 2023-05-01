@@ -1,18 +1,31 @@
 ﻿@model IList<PruebaCrud.Services.DTOs.AttendanceDto>
 @using PruebaCrud.Services.DTOs;
 
+
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Attendance";
 }
 
 <div class="container">
-	<h1 class="display-3">Attendances</h1><hr class="my-4"/>
-	<table class="table table-bordere">
+    <div class="row">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1 class="display-3 float-start"">Attendances</h1>
+            <button class="btn btn-lg btn-success float-end">Add Attendance</button>
+        </div>
+        <div class="col">
+            
+        </div>
+        <hr class="my-3" />
+    </div>
+
+    <br/>
+
+    <table id="attendanceTable" class="table table-bordere" style="width:100%">
 		<thead class="table-dark">
 			<tr>
-				<th scope="col">Store ID</th>
-				<th scope="col">Employee ID</th>
-				<th scope="col">Attendance Date</th>
+				<th scope="col" class="col-2 text-center">Store ID</th>
+                <th scope="col" class="text-center">Employee ID</th>
+                <th scope="col" class="text-center">Attendance Date</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -27,3 +40,15 @@
 		</tbody>
 	</table>
 </div>
+
+@section Scripts {
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#attendanceTable').DataTable();
+        });
+    </script>
+}

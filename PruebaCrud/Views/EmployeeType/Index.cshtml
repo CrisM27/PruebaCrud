@@ -2,29 +2,59 @@
 @using PruebaCrud.Services.DTOs;
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Employee Type";
 }
 
 <div class="container">
-	<h1 class="display-3">Employee Type</h1><hr class="my-4"/>
-	<table class="table table-bordered">
-		<thead class="table-dark">
-			<tr>
-				<th scope="col">Employee Type ID</th>
-				<th scope="col">Employee Role</th>
-				<th scope="col">Salary</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach(EmployeeTypeDto employeeTypeDto in Model)
-			{
-				<tr>
-					<td>@employeeTypeDto.EmployeeTypeID</td>
-					<td>@employeeTypeDto.EmployeeRole</td>
-					<td>@employeeTypeDto.Salary</td>
-				</tr>
-			}
-		</tbody>
-	</table>
 
+    <div id="addEmployeeModalContainer"></div>
+    <div class="row">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1 class="display-3 float-start">Employee Type</h1>
+            <button class="btn btn-lg btn-success float-end" onclick="AddEmployeeType()">Add Role</button>
+        </div>
+        <hr class="my-3" />
+    </div>
+
+    <br/>
+
+    <div>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col" class="col-2 text-center">Employee Type ID</th>
+                    <th scope="col" class="col-6 text-center">Employee Role</th>
+                    <th scope="col" class="col-2 text-center">Salary</th>
+                    <th scope="col" class="col-2 text-center">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (EmployeeTypeDto employeeTypeDto in Model)
+                {
+                    <tr>
+                        <td class="text-center">@employeeTypeDto.EmployeeTypeID</td>
+                        <td>@employeeTypeDto.EmployeeRole</td>
+                        <td class="text-end">@employeeTypeDto.Salary</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="@("#editEmployeeModal-"+employeeTypeDto.EmployeeTypeID)" data-bs-url="@Url.Action($"Edit/{employeeTypeDto.EmployeeTypeID}")">Edit</button>
+                            @await Html.PartialAsync("_EditEmployeeType", employeeTypeDto)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
+
+@section Scripts {
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function AddEmployeeType() {
+            $.get('/EmployeeType/Add', function (data) {
+                $('#addEmployeeModalContainer').html(data);
+                $('#AddEmployeeTypeModal').modal('show');
+            });
+        }
+    </script>
+
+}

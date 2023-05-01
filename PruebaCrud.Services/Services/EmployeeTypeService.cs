@@ -25,29 +25,33 @@ namespace PruebaCrud.Services.Services
 
             return employeeTypesDto;
         }
-        public List<int> GetAllEmployeeRoleID()
-        {
-            return _employeeRepository.GetAllEmployeeRoleID();
-        }
 
         public EmployeeTypeDto GetById(int id)
         {
-            throw new NotImplementedException();
+            var employeeType = _employeeRepository.GetById(id);
+            var employeeTypeDto = _mapper.Map<EmployeeTypeDto>(employeeType);
+            return employeeTypeDto;
         }
 
         public void Insert(EmployeeTypeDto employeeTypeDto)
         {
-            throw new NotImplementedException();
+            var employeetypeDto = _mapper.Map<EmployeeType>(employeeTypeDto);
+            var employeetype = employeetypeDto;
+            _employeeRepository.Insert(employeetype);
         }
 
         public void Update(EmployeeTypeDto employeeTypeDto)
         {
-            throw new NotImplementedException();
+            var employeetypeDto = _mapper.Map<EmployeeType>(employeeTypeDto);
+            var employeetype = employeetypeDto;
+            _employeeRepository.Update(employeetype);
         }
 
-        public void DeleteById(int id)
+        public void Delete(EmployeeTypeDto employeeTypeDto)
         {
-            throw new NotImplementedException();
+            var employeetypeDto = _mapper.Map<EmployeeType>(employeeTypeDto);
+            var employeetype = employeetypeDto;
+            _employeeRepository.Delete(employeetype);
         }
     }
 }

@@ -6,41 +6,43 @@
 }
 
 <div class="container">
-	<h1 class="display-3">Stores</h1><hr class="my-3"/>
-
 	<div id="addStoreModalContainer"></div>
 	<div class="row">
-		<div class="d-flex justify-content-end">
-			<button class="btn btn-success" onclick="AddStore()">Add Store</button>
+        <div class="d-flex justify-content-between align-items-center">
+            <h1 class="display-3">Stores</h1>
+			<button class="btn btn-lg btn-success" onclick="AddStore()">Add Store</button>
 		</div>
+        <hr class="my-3" />
 	</div>
 
 	<br />
 
-	<table class="table table-bordered">
-		<thead class="table-dark">
-			<tr>
-				<th scope="col" class="text-center">Store ID</th>
-				<th scope="col" class="text-center">Store Name</th>
-				<th scope="col" class="text-center">Store Address</th>
-				<th scope="col" class="text-center">Options</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach(StoreDto storeDto in Model)
-			{
-				<tr>
-					<td class="text-center">@storeDto.StoreID</td>
-					<td>@storeDto.Name</td>
-					<td>@storeDto.Address</td>
-					<td class="text-center">
-						<button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="@("#EditStore-" + storeDto.StoreID)" data-bs-url="@Url.Action($"EditStore/{storeDto.StoreID}")">Edit</button>
-						@await Html.PartialAsync("_EditStore", storeDto)
-					</td>
-				</tr>
-			}
-		</tbody>
-	</table>
+    <div>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col" class="text-center">Store ID</th>
+                    <th scope="col" class="text-center">Store Name</th>
+                    <th scope="col" class="text-center">Store Address</th>
+                    <th scope="col" class="text-center">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (StoreDto storeDto in Model)
+                {
+                    <tr>
+                        <td class="text-center">@storeDto.StoreID</td>
+                        <td>@storeDto.Name</td>
+                        <td>@storeDto.Address</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="@("#EditStore-" + storeDto.StoreID)" data-bs-url="@Url.Action($"EditStore/{storeDto.StoreID}")">Edit</button>
+                            @await Html.PartialAsync("_EditStore", storeDto)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
 
 @section Scripts {

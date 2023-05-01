@@ -25,14 +25,21 @@ namespace PruebaCrud.Web.Controllers
         }
         public IActionResult Index()
         {
+            var employeetypes = _employeeTypeService.GetAll();
+            ViewBag.EmployeeTypes = employeetypes;
+
             var employeeList = _employeeService.GetAll();
 
             return View(employeeList);
         }
 
+        [HttpGet]
         public IActionResult AddEmployee()
         {
             var employee = new EmployeeDto();
+            var employeetypes = _employeeTypeService.GetAll();
+            ViewBag.EmployeeTypes = employeetypes;
+
             return PartialView("./_AddEmployee", employee);
         }
 
@@ -55,6 +62,7 @@ namespace PruebaCrud.Web.Controllers
         [HttpPost]
         public IActionResult UpdateEmployee(EmployeeDto employeeDto)
         {
+
             _employeeService.Update(employeeDto);
             _toastNotification.Success("Changes has been saved.");
             return RedirectToAction("Index");

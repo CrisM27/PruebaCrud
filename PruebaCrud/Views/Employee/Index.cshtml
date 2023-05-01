@@ -8,13 +8,13 @@
 
 
 <div class="container">
-	<h1 class="display-3">Employees</h1><hr class="my-3"/>
-
 	<div id="addModalContainer"></div>
     <div class="row">
-        <div class="d-flex justify-content-end">
-			<button class="btn btn-success" onclick="AddEmployeeModal()">Add Employee</button>
+        <div class="d-flex justify-content-between align-items-center">
+            <h1 class="display-3 float-start">Employees</h1>
+			<button class="btn btn-lg btn-success float-end" onclick="AddEmployeeModal()">Add Employee</button>
 		</div>
+        <hr class="my-3" />
     </div>
 
 	<br/>
@@ -50,9 +50,6 @@
 			}
 		</tbody>
 		</table>
-	@**@
-	
-	
 </div>
 
 @section Scripts {
