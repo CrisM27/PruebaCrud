@@ -1,0 +1,29 @@
+﻿@model StoreDto
+@using PruebaCrud.Services.DTOs
+
+<div class="modal fade" id="addStoreModal" tabindex="-1" aria-labelledby="addStoreModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="addStoreModalLabel">Add Store</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form class="row g-3" method="post" asp-controller="Store" asp-action="AddStore">
+					<div class="col-6">
+						<label for="inputName" class="form-label">Store Name</label>
+						<input type="text" class="form-control" id="inputName" asp-for="Name" name="Name" placeholder="Store Name" required>
+					</div>
+					<div class="col-12">
+						<label for="inputAddress" class="form-label">Store Address</label>
+						<input type="text" class="form-control" id="inputAddress" asp-for="Address" name="Address" placeholder="Address" required>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-success">Save changes</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

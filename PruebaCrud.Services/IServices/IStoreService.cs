@@ -8,6 +8,6 @@ namespace PruebaCrud.Services.IServices
         StoreDto GetById(int id);
         void Insert(StoreDto storedto);
         void Update(StoreDto storedto);
-        void Delete(int storeid);
+        void Delete(StoreDto storedto);
     }
 }

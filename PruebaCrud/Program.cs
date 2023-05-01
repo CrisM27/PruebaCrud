@@ -17,6 +17,8 @@ var connString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<PruebaCrudContext>
     (options => options.UseSqlServer(connString));
 
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
 
 // Repositories
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();

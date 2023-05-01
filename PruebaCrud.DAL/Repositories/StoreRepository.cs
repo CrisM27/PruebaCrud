@@ -35,10 +35,9 @@ namespace PruebaCrud.DAL.Repositories
             _context.SaveChanges();
         }
 
-        public void Delete(int storeid)
+        public void Delete(Store store)
         {
-            var store = _context.Stores.FirstOrDefault(e => e.StoreID == storeid);
-            if (store != null) 
+            if (store != null)
             {
                 _context.Stores.Remove(store);
                 _context.SaveChanges();

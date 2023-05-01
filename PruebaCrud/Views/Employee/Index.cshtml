@@ -2,7 +2,7 @@
 @using PruebaCrud.Services.DTOs;
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Employees";
 }
 
 
@@ -10,12 +10,14 @@
 <div class="container">
 	<h1 class="display-3">Employees</h1><hr class="my-3"/>
 
+	<div id="addModalContainer"></div>
     <div class="row">
         <div class="d-flex justify-content-end">
-            <h4 class="align-self-center m-2" >Add Employee</h4>
-            @Html.ActionLink("+", "Index","AddEmployee", null, new { @class="btn btn-lg btn-success my-3 float-end" }) 
-        </div>
+			<button class="btn btn-success" onclick="AddEmployeeModal()">Add Employee</button>
+		</div>
     </div>
+
+	<br/>
 
  <div/>
 
@@ -39,9 +41,28 @@
                     <td class ="text-center">@employeeDto.EmployeeTypeID</td>
 					<td>@employeeDto.Telephone</td>
 					<td>@employeeDto.EmploymentDate</td>
-                    <td class="text-center">@Html.ActionLink("Edit","Index","EditEmployee", new { id = employeeDto.EmployeeID  }, new{@class="btn btn-info m-1"})</td>
+					<td class="text-center">
+						@*Html.ActionLink("Edit", "Index", "EditEmployee",  new{id = employeeDto.EmployeeID}, new{ @class="btn btn-info"})*@
+						<button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="@("#EditEmployee-" + employeeDto.EmployeeID)" data-bs-url="@Url.Action($"EditEmployee/{employeeDto.EmployeeID}")">Edit</button>
+						@await Html.PartialAsync("_EditEmployee",employeeDto)
+					</td>
 				</tr>
 			}
 		</tbody>
 		</table>
+	@**@
+	
+	
 </div>
+
+@section Scripts {
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script>
+		function AddEmployeeModal() {
+			$.get('/Employee/AddEmployee', function (data) {
+				$('#addModalContainer').html(data);
+				$('#addModal').modal('show');
+			});
+		}
+	</script>
+}

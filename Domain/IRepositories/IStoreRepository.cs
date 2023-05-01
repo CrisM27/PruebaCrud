@@ -8,6 +8,6 @@ namespace PruebaCrud.Domain.IRepositories
         Store GetById(int id);
         void Insert(Store store);
         void Update(Store store);
-        void Delete(int storeid);
+        void Delete(Store store);
     }
 }

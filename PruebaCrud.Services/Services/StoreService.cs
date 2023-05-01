@@ -44,10 +44,10 @@ namespace PruebaCrud.Services.Services
             _storeRepository.Update(store);
         }
 
-        public void Delete(int storeid)
+        public void Delete(StoreDto storedto)
         {
-            _storeRepository.Delete(storeid);
-           
+            var store = _mapper.Map<Store>(storedto);
+            _storeRepository.Delete(store);
         }
     }
 }
