@@ -1,12 +1,12 @@
-﻿using PruebaCrud.Domain.Entities;
-using PruebaCrud.Services.DTOs;
+﻿using PruebaCrud.Services.DTOs;
 
 namespace PruebaCrud.Services.IServices
 {
     public interface IAttendaceService
     {
+        void Add(AttendanceDto attendanceDto);
         List<AttendanceDto> GetAll();
-        List<AttendanceDto> GetAttendancesByDate(DateTime dateTime);
+        List<AttendanceDto> GetAttendancesByDate(DateTime date);
         List<AttendanceDto> GetAttendancesByStore(int storeId);
         List<EmployeeDto> GetEmployeesAttendance(int id);
     }

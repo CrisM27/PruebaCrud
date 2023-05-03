@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using PruebaCrud.Domain.Entities;
 using PruebaCrud.Domain.IRepositories;
 using PruebaCrud.Services.DTOs;
 using PruebaCrud.Services.IServices;
@@ -16,6 +17,12 @@ namespace PruebaCrud.Services.Services
             _mapper = mapper;
         }
 
+        public void Add(AttendanceDto attendanceDto)
+        {
+            var attendance = _mapper.Map<Attendance>(attendanceDto);
+            _attendaceRepository.Add(attendance);
+        }
+
         public List<AttendanceDto> GetAll()
         {
             var attendances = _attendaceRepository.GetAll();
@@ -24,9 +31,9 @@ namespace PruebaCrud.Services.Services
             return attendanceDtos;
         }
 
-        public List<AttendanceDto> GetAttendancesByDate(DateTime dateTime)
+        public List<AttendanceDto> GetAttendancesByDate(DateTime date)
         {
-            var attendances = _attendaceRepository.GetAttendancesByDate(dateTime);
+            var attendances = _attendaceRepository.GetAttendancesByDate(date);
             var attendancesDto = _mapper.Map<List<AttendanceDto>>(attendances);
 
             return attendancesDto;

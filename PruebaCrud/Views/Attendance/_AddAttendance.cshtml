@@ -1,0 +1,48 @@
+﻿@model AttendanceDto
+@using PruebaCrud.Services.DTOs
+
+<style>
+    /* Oculta los spinners */
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .input-group-append {
+    cursor: pointer;
+    }
+</style>
+
+<div class="modal fade" id="addAttendanceModal" tabindex="-1" aria-labelledby="addAttendanceModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addAttendanceModal">Add Attendance</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="row g-3" method="post" asp-controller="Attendance" asp-action="Add">
+                    <div class="col-4 text-start">
+                        <label for="inputEmployeeID" class="form-label">Employee ID</label>
+                        <input type="number" class="form-control" min="0" value="" id="inputEmployeeID" asp-for="EmployeeID" name="EmployeeID" required>
+                    </div>
+                    <div class="col-4 text-start">
+                        <label for="inputStoreID" class="form-label">Store ID</label>
+                        <input type="number" class="form-control" min="0" value="" id="inputStoreID" asp-for="StoreID" name="StoreID" required>
+                    </div>
+                    <div class="col-4 text-start">
+                        <label for="inputDate" class="form-label">Date</label>
+                        <div class='input-group date' id='datetimepicker'>
+                            <input type="datetime-local" id="datetime-local" value="<?= date('Y-m-d\TH:i:00', time()); ?>" class="form-control" asp-for="AttendanceDate" name="AttendanceDate">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

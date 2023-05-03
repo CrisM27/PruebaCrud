@@ -7,13 +7,11 @@
 }
 
 <div class="container">
+    <div id="AddAttendanceModalContainer"></div>
     <div class="row">
         <div class="d-flex justify-content-between align-items-center">
             <h1 class="display-3 float-start"">Attendances</h1>
-            <button class="btn btn-lg btn-success float-end">Add Attendance</button>
-        </div>
-        <div class="col">
-            
+            <button class="btn btn-lg btn-success float-end" onclick="AddAttendance()">Add Attendance</button>
         </div>
         <hr class="my-3" />
     </div>
@@ -23,18 +21,18 @@
     <table id="attendanceTable" class="table table-bordere" style="width:100%">
 		<thead class="table-dark">
 			<tr>
-				<th scope="col" class="col-2 text-center">Store ID</th>
-                <th scope="col" class="text-center">Employee ID</th>
-                <th scope="col" class="text-center">Attendance Date</th>
+                <th scope="col" class="col-4 text-center">Employee ID</th>
+                <th scope="col" class="col-4 text-center">Store ID</th>
+                <th scope="col" class="col-4 text-center">Attendance Date</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach(AttendanceDto attendanceDto in Model)
 			{
 				<tr>
-					<td>@attendanceDto.StoreID</td>
-					<td>@attendanceDto.EmployeeID</td>
-					<td>@attendanceDto.AttendanceDate</td>
+                     <td scope="col" class="col-4 text-center">@attendanceDto.EmployeeID</td>
+                     <td scope="col" class="col-4 text-center">@attendanceDto.StoreID</td>
+                     <td scope="col" class="col-4 text-center">@attendanceDto.AttendanceDate.ToString("MM/dd/yyyy")</td>
 				</tr>
 			}
 		</tbody>
@@ -46,9 +44,17 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+   
     <script>
         $(document).ready(function () {
             $('#attendanceTable').DataTable();
         });
+
+        function AddAttendance() {
+        $.get('/Attendance/Add', function (data) {
+            $('#AddAttendanceModalContainer').html(data);
+            $('#addAttendanceModal').modal('show');
+        });
+        }
     </script>
 }

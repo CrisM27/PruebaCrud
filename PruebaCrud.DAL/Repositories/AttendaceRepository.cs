@@ -13,15 +13,21 @@ namespace PruebaCrud.DAL.Repositories
             _context = context;
         }
 
+        public void Add(Attendance attendance)
+        {
+            _context.Add(attendance);
+            _context.SaveChanges();
+        }
+
         public List<Attendance> GetAll()
         {
             return _context.Attendances.ToList();            
         }
 
-        public List<Attendance> GetAttendancesByDate(DateTime dateTime)
+        public List<Attendance> GetAttendancesByDate(DateTime date)
         {
             var attendaces = _context.Attendances
-                                        .Where(e => e.AttendanceDate == dateTime)
+                                        .Where(e => e.AttendanceDate == date)
                                         .ToList();
 
             return attendaces;

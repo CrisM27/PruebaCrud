@@ -1,11 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PruebaCrud.Domain.Entities;
 
 namespace PruebaCrud.DAL.Configuration
 {
     public class AttendanceConfiguration : IEntityTypeConfiguration<Attendance>
     {
+
         public void Configure(EntityTypeBuilder<Attendance> builder)
         {
             builder
