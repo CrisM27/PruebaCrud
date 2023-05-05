@@ -1,4 +1,5 @@
-﻿using PruebaCrud.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using PruebaCrud.Domain.Entities;
 using PruebaCrud.Domain.IRepositories;
 using System;
 
@@ -21,7 +22,9 @@ namespace PruebaCrud.DAL.Repositories
 
         public List<Attendance> GetAll()
         {
-            return _context.Attendances.ToList();            
+            return _context.Attendances.ToList();
+//            return _context.Attendances.Include(e => e.Store).ToList();
+
         }
 
         public List<Attendance> GetAttendancesByDate(DateTime date)

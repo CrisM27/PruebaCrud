@@ -1,0 +1,4 @@
+USE CRUD;
+
+ALTER TABLE Store
+ADD Test VARCHAR(5);

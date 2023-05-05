@@ -36,6 +36,9 @@ namespace PruebaCrud.DAL.Configuration
                .IsRequired();
             builder
                 .Property(e => e.Salary).HasMaxLength(12);
+            builder
+                .Property(e => e.Salary)
+                .HasColumnType("decimal");
         }
     }
 }

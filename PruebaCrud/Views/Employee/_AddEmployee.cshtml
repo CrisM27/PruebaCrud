@@ -30,7 +30,7 @@
 					</div>
                     <div class="col-6 text-start">
 						<label for="inputEmployementDate" class="form-label">Employment Date</label>
-						<input type="date" class="form-control" id="inputEmployementDate" asp-for="EmploymentDate" name="EmploymentDate" required>
+                        <input type="datetime-local" id="datetime-local" value="<?= date('Y-m-d\TH:i:00', time()); ?>" class="form-control" asp-for="EmploymentDate" name="EmploymentDate">
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
