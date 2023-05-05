@@ -7,5 +7,6 @@
         public string Telephone { get; set; }
         public DateTime EmploymentDate { get; set; }
         public int EmployeeTypeID { get; set; }
+        public EmployeeTypeDto EmployeeType { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using PruebaCrud.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using PruebaCrud.Domain.Entities;
 using PruebaCrud.Domain.IRepositories;
 
 namespace PruebaCrud.DAL.Repositories
@@ -13,7 +14,7 @@ namespace PruebaCrud.DAL.Repositories
 
         public List<Employee> GetAll()
         {
-            return _context.Employees.ToList();
+            return _context.Employees.Include(e => e.EmployeeType).ToList();
         }
 
         public Employee GetEmployee(int employeeId)

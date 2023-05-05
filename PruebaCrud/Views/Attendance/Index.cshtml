@@ -30,8 +30,8 @@
 			@foreach(AttendanceDto attendanceDto in Model)
 			{
 				<tr>
-                     <td scope="col" class="col-4 text-center">@attendanceDto.EmployeeID</td>
-                     <td scope="col" class="col-4 text-center">@attendanceDto.StoreID</td>
+                     <td scope="col" class="col-4 text-center">@attendanceDto.EmployeeDto.Name</td>
+                     <td scope="col" class="col-4 text-center">@attendanceDto.StoreDto.Name</td>
                      <td scope="col" class="col-4 text-center">@attendanceDto.AttendanceDate.ToString("MM/dd/yyyy")</td>
 				</tr>
 			}

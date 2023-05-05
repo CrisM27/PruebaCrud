@@ -24,6 +24,34 @@ namespace PruebaCrud.DAL.Configuration
                 .Property(e => e.Name).HasMaxLength(50);
 
             builder
+                .Property(e => e.Country)
+                .HasColumnName("Country")
+                .IsRequired();
+            builder
+                .Property(e => e.Country).HasMaxLength(50);
+
+            builder
+                .Property(e => e.State)
+                .HasColumnName("State")
+                .IsRequired();
+            builder
+                .Property(e => e.State).HasMaxLength(50);
+
+            builder
+                .Property(e => e.City)
+                .HasColumnName("City")
+                .IsRequired();
+            builder
+                .Property(e => e.City).HasMaxLength(50);
+
+            builder
+                .Property(e => e.Zipcode)
+                .HasColumnName("Zip_Code")
+                .IsRequired();
+            builder
+                .Property(e => e.City).HasMaxLength(5);
+
+            builder
                 .Property(e => e.Address )
                 .HasColumnName("Store_Address")
                 .IsRequired();

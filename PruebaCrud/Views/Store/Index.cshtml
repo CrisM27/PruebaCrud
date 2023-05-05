@@ -21,19 +21,25 @@
         <table class="table table-bordered">
             <thead class="table-dark">
                 <tr>
-                    <th scope="col" class="text-center">Store ID</th>
                     <th scope="col" class="text-center">Store Name</th>
-                    <th scope="col" class="text-center">Store Address</th>
+                    <th scope="col" class="text-center">Country</th>
+                    <th scope="col" class="text-center">State</th>
+                    <th scope="col" class="text-center">City</th>
+                    <th scope="col" class="text-center">Address</th>
+                    <th scope="col" class="text-center">Zip Code</th>
                     <th scope="col" class="text-center">Options</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (StoreDto storeDto in Model)
+                @foreach (var storeDto in Model)
                 {
                     <tr>
-                        <td class="text-center">@storeDto.StoreID</td>
-                        <td>@storeDto.Name</td>
-                        <td>@storeDto.Address</td>
+                        <td class="text-center">@storeDto.Name</td>
+                        <td class="text-center">@storeDto.Country</td>
+                        <td class="text-center">@storeDto.State</td>
+                        <td class="text-center">@storeDto.City</td>
+                        <td class="text-cente">@storeDto.Zipcode</td>
+                        <td class="text-center">@storeDto.Address</td>
                         <td class="text-center">
                             <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="@("#EditStore-" + storeDto.StoreID)" data-bs-url="@Url.Action($"EditStore/{storeDto.StoreID}")">Edit</button>
                             @await Html.PartialAsync("_EditStore", storeDto)

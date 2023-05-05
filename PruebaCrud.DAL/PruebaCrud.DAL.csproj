@@ -7,10 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Migrations\MIG_DeleteTestColumn.sql" />
     <None Remove="Migrations\MIG_FirstMigration.sql" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\MIG_DeleteTestColumn.sql" />
     <EmbeddedResource Include="Migrations\MIG_FirstMigration.sql" />
   </ItemGroup>
 
