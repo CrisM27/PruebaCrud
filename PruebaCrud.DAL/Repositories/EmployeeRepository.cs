@@ -21,7 +21,8 @@ namespace PruebaCrud.DAL.Repositories
         {
             var employee = _context.Employees.Find(employeeId);
             //var employee = _context.Employees.FirstOrDefault(x=>x.ID == employeeId);
-            return employee;
+            _context.ChangeTracker.Clear();
+            return employee;   
         }
 
         public void Insert(Employee employee)

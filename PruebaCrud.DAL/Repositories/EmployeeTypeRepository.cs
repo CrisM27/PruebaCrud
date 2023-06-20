@@ -19,6 +19,7 @@ namespace PruebaCrud.DAL.Repositories
         public EmployeeType GetById(int id)
         {
             var employeetype = _context.EmployeeTypes.FirstOrDefault(e => e.EmployeeTypeID == id);
+            _context.ChangeTracker.Clear();
             return employeetype;
         }
 

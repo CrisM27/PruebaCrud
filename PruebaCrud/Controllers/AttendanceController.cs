@@ -8,12 +8,12 @@ namespace PruebaCrud.Web.Controllers
 {
     public class AttendanceController : Controller
     {
-        private readonly IAttendaceService _attendanceService;
+        private readonly IAttendanceService _attendanceService;
         private readonly IEmployeeService _employeeService;
         private readonly IStoreService _storeService;
         private readonly INotyfService _toastNotification;
 
-        public AttendanceController(IAttendaceService service, INotyfService toastNotification, IEmployeeService employeeService, IStoreService storeService)
+        public AttendanceController(IAttendanceService service, INotyfService toastNotification, IEmployeeService employeeService, IStoreService storeService)
         {
             _attendanceService = service;
             _toastNotification = toastNotification;

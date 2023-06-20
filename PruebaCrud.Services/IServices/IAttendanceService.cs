@@ -2,7 +2,7 @@
 
 namespace PruebaCrud.Services.IServices
 {
-    public interface IAttendaceService
+    public interface IAttendanceService
     {
         void Add(AttendanceDto attendanceDto);
         List<AttendanceDto> GetAll();

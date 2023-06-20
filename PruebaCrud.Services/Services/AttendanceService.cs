@@ -6,12 +6,12 @@ using PruebaCrud.Services.IServices;
 
 namespace PruebaCrud.Services.Services
 {
-    public class AttendaceService : IAttendaceService
+    public class AttendanceService : IAttendanceService
     {
-        private readonly IAttendaceRepository _attendaceRepository;
+        private readonly IAttendanceRepository _attendaceRepository;
         private readonly IMapper _mapper;
 
-        public AttendaceService(IAttendaceRepository attendaceRepository, IMapper mapper)
+        public AttendanceService(IAttendanceRepository attendaceRepository, IMapper mapper)
         {
             _attendaceRepository = attendaceRepository;
             _mapper = mapper;

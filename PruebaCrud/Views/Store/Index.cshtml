@@ -38,8 +38,8 @@
                         <td class="text-center">@storeDto.Country</td>
                         <td class="text-center">@storeDto.State</td>
                         <td class="text-center">@storeDto.City</td>
-                        <td class="text-cente">@storeDto.Zipcode</td>
                         <td class="text-center">@storeDto.Address</td>
+                        <td class="text-center">@storeDto.Zipcode</td>
                         <td class="text-center">
                             <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="@("#EditStore-" + storeDto.StoreID)" data-bs-url="@Url.Action($"EditStore/{storeDto.StoreID}")">Edit</button>
                             @await Html.PartialAsync("_EditStore", storeDto)

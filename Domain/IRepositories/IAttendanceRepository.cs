@@ -2,7 +2,7 @@
 
 namespace PruebaCrud.Domain.IRepositories
 {
-    public interface IAttendaceRepository
+    public interface IAttendanceRepository
     {
         void Add(Attendance attendance);
         List<Attendance> GetAll();

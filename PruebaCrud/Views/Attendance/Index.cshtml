@@ -21,8 +21,8 @@
     <table id="attendanceTable" class="table table-bordere" style="width:100%">
 		<thead class="table-dark">
 			<tr>
-                <th scope="col" class="col-4 text-center">Employee ID</th>
-                <th scope="col" class="col-4 text-center">Store ID</th>
+                <th scope="col" class="col-4 text-center">Employee Name</th>
+                <th scope="col" class="col-4 text-center">Store Name</th>
                 <th scope="col" class="col-4 text-center">Attendance Date</th>
 			</tr>
 		</thead>
@@ -30,8 +30,8 @@
 			@foreach(AttendanceDto attendanceDto in Model)
 			{
 				<tr>
-                     <td scope="col" class="col-4 text-center">@attendanceDto.EmployeeDto.Name</td>
-                     <td scope="col" class="col-4 text-center">@attendanceDto.StoreDto.Name</td>
+                     <td scope="col" class="col-4 text-center">@attendanceDto.Employee.Name</td>
+                     <td scope="col" class="col-4 text-center">@attendanceDto.Store.Name</td>
                      <td scope="col" class="col-4 text-center">@attendanceDto.AttendanceDate.ToString("MM/dd/yyyy")</td>
 				</tr>
 			}

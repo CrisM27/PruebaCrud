@@ -8,6 +8,7 @@ using PruebaCrud.Services.DTOs;
 using PruebaCrud.Services.IServices;
 using PruebaCrud.Services.Services;
 
+
 namespace PruebaCrud.Web.Controllers
 {
     public class EmployeeController : Controller
@@ -49,23 +50,33 @@ namespace PruebaCrud.Web.Controllers
             _employeeService.Insert(employee);
             _toastNotification.Success("A new employee has been added.");
             ModelState.Clear();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index");  
         }
 
-        [HttpGet]
-        public IActionResult EditEmployee(int id)
+
+        public JsonResult GetEmployee(int id)
         {
             var employee = _employeeService.GetEmployee(id);
-            return PartialView("./_EditEmployee", employee);
+            return Json(employee);
+        }
+
+        public IActionResult EditEmployee()
+        {
+            ViewBag.EmployeeTypes = _employeeTypeService.GetAll();
+            return PartialView("_EditEmployee");
         }
 
         [HttpPost]
-        public IActionResult UpdateEmployee(EmployeeDto employeeDto)
+        public JsonResult UpdateEmployee([FromBody] EmployeeDto EmployeeDto)
         {
-
-            _employeeService.Update(employeeDto);
-            _toastNotification.Success("Changes has been saved.");
-            return RedirectToAction("Index");
+            if (EmployeeDto is not null)
+            {
+                _employeeService.Update(EmployeeDto);
+                _toastNotification.Success("Changes has been saved.");
+                return Json(new { result = true });
+            }
+            _toastNotification.Error("An error has ocurred.");
+            return Json(new { result = false});
         }
 
         [HttpPost]

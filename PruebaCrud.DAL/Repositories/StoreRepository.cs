@@ -20,6 +20,7 @@ namespace PruebaCrud.DAL.Repositories
         public Store GetById(int id)
         {
             var store = _context.Stores.FirstOrDefault(x=>x.StoreID == id);
+            _context.ChangeTracker.Clear();
             return store;
         }
 

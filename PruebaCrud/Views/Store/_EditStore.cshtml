@@ -9,27 +9,43 @@
 				<button type="button" onclick="javascript: window.location.reload()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				<form class="row g-4" method="post" asp-controller="Store" asp-action="UpdateStore">
-					<input type="hidden" id="hiddenStoreId" asp-for="StoreID" name="StoreID">
-					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="col-6 text-start">
-						<label for="inputName" class="form-label">Store Name</label>
-						<input type="text" class="form-control" id="inputName" asp-for="Name" name="Name" placeholder="Store Name" required>
-					</div>
+                <form class="row g-3" method="post" asp-controller="Store" asp-action="UpdateStore">
+                    <input type="hidden" id="hiddenStoreId" asp-for="StoreID" name="StoreID">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="col-12 text-start">
-						<label for="inputAddress" class="form-label">Store Address</label>
-						<input type="text" class="form-control" id="inputAddress" asp-for="Address" name="Address" placeholder="Address" required>
-					</div>
-					<div class="modal-footer">
-						<div class="col text-start">
-							<button type="submit" class="btn btn-success text-start">Save changes</button>
-							<button type="button" class="btn btn-warning text-start" data-bs-dismiss="modal">Close</button>
-						</div>
-						<div class="col text-end">
-							<button type="submit" class="btn btn-danger text-end" asp-controller="Store" asp-action="DeleteStore">Delete</button>
-						</div>
-					</div>
-				</form>
+                        <label for="inputName" class="form-label">Store Name</label>
+                        <input type="text" class="form-control" id="inputName" asp-for="Name" name="Name" placeholder="Name" required>
+                    </div>
+                    <div class="col-3 text-start">
+                        <label for="inputCountry" class="form-label">Country</label>
+                        <input type="text" class="form-control" id="inputCountry" asp-for="Country" name="Country" placeholder="Country" required>
+                    </div>
+                    <div class="col-3 text-start">
+                        <label for="inputState" class="form-label">State</label>
+                        <input type="text" class="form-control" id="inputState" asp-for="State" name="State" placeholder="State" required>
+                    </div>
+                    <div class="col-3 text-start">
+                        <label for="inputCity" class="form-label">City</label>
+                        <input type="text" class="form-control" id="inputCity" asp-for="City" name="City" placeholder="City" required>
+                    </div>
+                    <div class="col-3 text-start">
+                        <label for="inputZip" class="form-label">Zip</label>
+                        <input type="text" class="form-control" id="inputZip" asp-for="Zipcode" name="Zipcode" placeholder="Name" required>
+                    </div>
+                    <div class="col-12 text-start">
+                        <label for="inputAddress" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="inputAddress" asp-for="Address" name="Address" placeholder="Address" required>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-between">
+                        <div>
+                            <button type="submit" class="btn btn-success text-start">Save changes</button>
+                            <button type="button" class="btn btn-warning text-start" data-bs-dismiss="modal">Close</button>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-danger" asp-controller="Store" asp-action="DeleteStore">Delete</button>
+                        </div>
+                    </div>
+                </form>
 			</div>
 		</div>
 	</div>

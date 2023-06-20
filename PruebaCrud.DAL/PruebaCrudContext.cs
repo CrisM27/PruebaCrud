@@ -21,5 +21,12 @@ namespace PruebaCrud.DAL
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder
+                .UseSqlServer("Data Source=.;Initial Catalog=CRUD;Integrated Security=True;TrustServerCertificate=true;")
+                .EnableSensitiveDataLogging();
+        }
     }
 }

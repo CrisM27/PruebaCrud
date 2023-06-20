@@ -7,19 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Migrations\.sql" />
     <None Remove="Migrations\MIG_DeleteTestColumn.sql" />
-    <None Remove="Migrations\MIG_FirstMigration.sql" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\MIG_DeleteTestColumn.sql" />
-    <EmbeddedResource Include="Migrations\MIG_FirstMigration.sql" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

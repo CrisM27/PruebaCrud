@@ -26,45 +26,45 @@ using System.Security.Permissions;
 
         builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
-        #region Repositories
-        // Repositories
-        builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-        builder.Services.AddScoped<IStoreRepository, StoreRepository>();
-        builder.Services.AddScoped<IEmployeeTypeRepository, EmployeeTypeRepository>();
-        builder.Services.AddScoped<IAttendaceRepository, AttendaceRepository>();
-        #endregion
+#region Repositories
+// Repositories
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IEmployeeTypeRepository, EmployeeTypeRepository>();
+builder.Services.AddScoped<IStoreRepository, StoreRepository>();
+builder.Services.AddScoped<IAttendanceRepository, AttendanceRepository>();
+#endregion
 
-        #region Services
-        // Services
-        builder.Services.AddScoped<IEmployeeService, EmployeeService>();
-        builder.Services.AddScoped<IStoreService, StoreService>();
-        builder.Services.AddScoped<IEmployeeTypeService, EmployeeTypeService>();
-        builder.Services.AddScoped<IAttendaceService, AttendaceService>();
-        builder.Services.AddSingleton<IDbMigrationService, DbMigrationService>();
+#region Services
+// Services
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddScoped<IEmployeeTypeService, EmployeeTypeService>();
+builder.Services.AddScoped<IStoreService, StoreService>();
+builder.Services.AddScoped<IAttendanceService, AttendanceService>();
+builder.Services.AddSingleton<IDbMigrationService, DbMigrationService>();
 #endregion
 
 #region Mapper
 //Mapper
 builder.Services.AddAutoMapper(typeof(PruebaCrudProfile));
-        #endregion
+#endregion
 
-        #region ToastNotification
-        // Add ToastNotification
-        builder.Services.AddNotyf(config =>
-        {
-            config.DurationInSeconds = 5;
-            config.IsDismissable = true;
-            config.Position = NotyfPosition.TopRight;
-        });
-        #endregion
+#region ToastNotification
+// Add ToastNotification
+builder.Services.AddNotyf(config =>
+{
+    config.DurationInSeconds = 5;
+    config.IsDismissable = true;
+    config.Position = NotyfPosition.TopRight;
+});
+#endregion
 
-        #region DB Migrations
+#region DB Migrations
 
-        var entitiesAssembly = AppDomain.CurrentDomain.GetAssemblies()
-                            .FirstOrDefault(a => a.FullName.StartsWith("PruebaCrud.DAL"));
-        #endregion
+var entitiesAssembly = AppDomain.CurrentDomain.GetAssemblies()
+                    .FirstOrDefault(a => a.FullName.StartsWith("PruebaCrud.DAL"));
+#endregion
 
-        var app = builder.Build();
+var app = builder.Build();
 
 var migrationService = app.Services.GetService<IDbMigrationService>();
 

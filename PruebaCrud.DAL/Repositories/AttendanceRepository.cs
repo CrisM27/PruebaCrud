@@ -5,11 +5,11 @@ using System;
 
 namespace PruebaCrud.DAL.Repositories
 {
-    public class AttendaceRepository : IAttendaceRepository
+    public class AttendanceRepository : IAttendanceRepository
     {
         private readonly PruebaCrudContext _context;
 
-        public AttendaceRepository(PruebaCrudContext context)
+        public AttendanceRepository(PruebaCrudContext context)
         {
             _context = context;
         }
@@ -22,9 +22,9 @@ namespace PruebaCrud.DAL.Repositories
 
         public List<Attendance> GetAll()
         {
-            return _context.Attendances.ToList();
-//          return _context.Attendances.Include(e => e.Store).ToList();
-
+            return _context.Attendances.Include(e => e.Store)
+                            .Include(e => e.Employee)
+                            .ToList();
         }
 
         public List<Attendance> GetAttendancesByDate(DateTime date)

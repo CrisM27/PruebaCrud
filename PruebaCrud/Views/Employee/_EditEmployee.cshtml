@@ -1,7 +1,7 @@
 ﻿@model EmployeeDto
 @using PruebaCrud.Services.DTOs;
 
-<div class="modal fade" id="@("EditEmployee-"+Model.EmployeeID)" tabindex="-1" aria-labelledby="editEmployeeModalLabel" aria-hidden="true">
+<div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="editEmployeeModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -9,7 +9,8 @@
 				<button type="button" onclick="javascript: window.location.reload()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				<form class="row g-4" method="post" asp-controller="Employee" asp-action="UpdateEmployee">
+                <form class="row g-4">
+
 					<input type="hidden" id="hiddenEmployeeId" asp-for="EmployeeID" name="EmployeeID">
 					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="col-6 text-start">
@@ -35,7 +36,7 @@
 					</div>
 					<div class="modal-footer">
 						<div class="col text-start">
-							<button type="submit" class="btn btn-success text-start">Save changes</button>
+							<button type="button" class="btn btn-success text-start" onclick="Save()">Save changes</button>
 							<button type="button" class="btn btn-warning text-start" data-bs-dismiss="modal">Close</button>
 						</div>
 						<div class="col text-end">
